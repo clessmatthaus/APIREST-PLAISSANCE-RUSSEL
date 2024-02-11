@@ -1,0 +1,17 @@
+{
+  "name": "plaissance-russel-apirest",
+  "version": "1.0.0",
+  "description": "Api Rest pour le port de Plaissance Roussell",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server"
+  },
+  "author": "Cless Matthaüs",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.2",
+    "express": "^4.18.2",
+    "mongoose": "^8.1.1",
+    "nodemon": "^3.0.3"
+  }
+}
