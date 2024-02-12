@@ -1,16 +1,16 @@
 const catwayModel = require('../models/catway.model');
-
 const ObjectID = require('mongoose').Types.ObjectId;
 
 //get catways list
-module.exports.getAllCatways = async (req, res) => {
-    const catway = await catwayModel.find();
-     res.status(200).json(catway);
- };
+module.exports.getAllCatways = (req, res) => {
+    catwayModel.find((err, data) => {
+        if(!err) res.send(data);
+        else console.log('Liste de catways non trouvées : ' + err);
+ })
+};
 
  //get catway by id
 module.exports.getCatway = (req, res) => {
-    //console.log(req.params)
     if (!ObjectID.isValid(req.params.id))
     {
        return res.status(400).send('ID unknown : ' + req.params.id)  
@@ -19,60 +19,55 @@ module.exports.getCatway = (req, res) => {
         if (!err){
             res.send(data);
         } else{
-            console.log('ID unknown : ' + err);
+            console.log('catway non trouvée : ' + err);
         }
     })
 };
 
-//update catway  catwayState
+//update catwayState
 module.exports.updateCatway = async (req, res) => {
     if (!ObjectID.isValid(req.params.id))
        return res.status(400).send('ID unknown : ' + req.params.id)  
     
-    try {
-        await catwayModel.findOneAndUpdate(
-            {_id: req.params.id}, 
-            {
-                $set: {
-                    catwayState: req.body.catwayState,                
-                }
-            },
-            { new: true, upsert: true, setDefaultsOnInsert: true },
-            (err, data) => {
-                if (!err) return res.send(data);          
-                if (err) return res.status(500).send({ message: err});
-            }
-        )
-    }
-    catch (err) {
-        return res.status(500).json({ message: err});
-    }
+    const updateCatwayState = { catwayState: req.body.catwayState}
+
+    catwayModel.findByIdAndUpdate(
+        req.params.id,
+        {$set: updateCatwayState},
+        { new: true},
+        (err, data) => {
+            if (!err) return res.send(data);
+            else console.log("erreur de mise à jour : " + err);
+        }
+    )
 };
 
  //create catway
 module.exports.createCatway = async (req, res) => {
-   
-        const {catwayNumber, type, catwayState} = req.body
-    
-        try {
-            const user = await catwayModel.create({catwayNumber, type, catwayState});
-            res.status(201).json({ user: user._id});
-        }
-        catch (err) {
-            res.status(200).send(err);
-        }
-    };
+    const newCatway =  new catwayModel({
+        catwayNumber: req.body.catwayNumber,
+        type: req.body.type,  
+        catwayState: req.body.catwayState
+    });
+    try {
+        const catway = await newCatway.save();
+        return res.status(201).json(catway);
+    }
+    catch (err) {
+        return res.status(400).send(err);
+    }
+};
 
 //delete catway
 module.exports.deleteCatway = async (req, res) => {
     if (!ObjectID.isValid(req.params.id)) 
     return res.status(400).send('ID unknown : ' + req.params.id)
   
-    try {
-        await catwayModel.remove({_id: req.params.id}).exec()
-        res.status(200).json({message: "catway supprimer avec succées."})
-    }
-    catch (err) {
-        return res.status(500).json({ message: err});
-    }
+    catwayModel.findByIdAndDelete(
+        req.params.id,
+        (err, data) => {
+           if(!err) res.send(data);
+           else console.log("Erreur de suppression : " + err) 
+        }
+    )
 }
