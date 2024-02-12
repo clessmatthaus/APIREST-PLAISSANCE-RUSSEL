@@ -1,5 +1,6 @@
 const express= require('express');
 const useRoutes = require('./routes/user.routes');
+const catwayRoutes = require('./routes/catway.routes');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const { verifUser, requireAuth } = require('./middleware/auth.middleware');
@@ -20,6 +21,12 @@ app.get('/jwtid', requireAuth, (req, res) => {
 
 //user routes
 app.use('/api/user', useRoutes);
+
+//catway routes
+app.use('/api/catways', catwayRoutes);
+
+//catway routes
+//app.use('/api/catways/id/reservations', reservationRoutes);
 
 //server loader
 app.listen(process.env.PORT, () => { console.log(`Lancement du serveur sur le port ${process.env.PORT}`)});

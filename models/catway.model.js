@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
 
-const Catway = new Schema({
+
+const catwaySchema = new mongoose.Schema(
+{
     catwayNumber: {
         type: Number,
         trim: true,
@@ -16,9 +17,11 @@ const Catway = new Schema({
         required: [true, 'une description est requis'],
         trim: true
     }   
-    },
+},
     {
         timestamps: true
     });
 
-module.exports = mongoose.model('Catway', Catway);
+    const catwayModel = mongoose.model('catway', catwaySchema);
+
+    module.exports = catwayModel;

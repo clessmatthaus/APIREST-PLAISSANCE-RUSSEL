@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
 
-const Reservation = new Schema({
+const reservationSchema = new mongoose.Schema(
+{
     catwayNumber: {
         type: Number,
         required: [true, 'Le numero du bateau est requis'],
@@ -27,9 +27,11 @@ const Reservation = new Schema({
         required: [true, 'la date de fin de réservation est requis'],
         trim: true
     }  
-    },
+},
     {
         timestamps: true
     });
 
-module.exports = mongoose.model('Reservation', Reservation);
+    const reservationModel = mongoose.model('reservation', reservationSchema);
+
+    module.exports = reservationModel;
