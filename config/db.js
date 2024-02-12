@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+mongoose.set("strictQuery", false);
 mongoose.connect("mongodb+srv://" + process.env.USER_PASS + "@cluster0.ephc3ld.mongodb.net/apirest-plaissance",
 {
     useNewUrlParser: true,

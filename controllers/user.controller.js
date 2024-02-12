@@ -3,10 +3,10 @@ const UserModel = require('../models/user.model');
 const ObjectID = require('mongoose').Types.ObjectId;
 
 //get users list
-//module.exports.getUser = async (req, res) => {
-//    const user = await UserModel.find().select('-password');
-//    res.status(200).json(user);
-//}
+module.exports.getUser = async (req, res) => {
+   const user = await UserModel.find().select('-password');
+    res.status(200).json(user);
+};
 
 //get user infos
 module.exports.userInfos = (req, res) => {
@@ -22,7 +22,7 @@ module.exports.userInfos = (req, res) => {
             console.log('ID unknown : ' + err);
         }
     }).select('-password');
-}
+};
 
 //update user
 module.exports.updateUser = async (req, res) => {

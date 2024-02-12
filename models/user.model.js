@@ -22,7 +22,7 @@ const userSchema = new mongoose.Schema(
         type: String,
         required: true,
         max: 600,
-        minLength: 8,
+        minlength: 8
     }
     },
     {
@@ -48,7 +48,7 @@ userSchema.statics.login = async function(email, password) {
         throw Error('mot de passe incorrecte')
     }
     throw Error('Email non valide')
-}
+};
 
 const UserModel = mongoose.model('user', userSchema);
 
