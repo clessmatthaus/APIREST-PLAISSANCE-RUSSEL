@@ -9,7 +9,7 @@ module.exports.getAllReservation = (req, res) => {
     })
  }
 
- //get reservation 
+ //get reservation details
  module.exports.getReservation = async (req, res) => {
     if (!ObjectID.isValid(req.params.idReservation))
        return res.status(400).send('ID unknown : ' + req.params.idReservation)  

@@ -23,10 +23,10 @@ app.get('/jwtid', requireAuth, (req, res) => {
 //user routes
 app.use('/api/user', useRoutes);
 
-//catway routes
+//catways routes
 app.use('/api/catways', catwayRoutes);
 
-//catway routes
+//reservations routes
 app.use('/api/catways/id/reservations', reservationRoutes);
 
 //server loader

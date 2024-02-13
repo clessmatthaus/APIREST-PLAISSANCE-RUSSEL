@@ -6,7 +6,7 @@ module.exports.getAllCatways = (req, res) => {
     catwayModel.find((err, data) => {
         if(!err) res.send(data);
         else console.log('Liste de catways non trouvées : ' + err);
- })
+ }).sort({createdAt: -1});
 };
 
  //get catway by id
@@ -66,7 +66,7 @@ module.exports.deleteCatway = async (req, res) => {
     catwayModel.findByIdAndDelete(
         req.params.id,
         (err, data) => {
-           if(!err) res.send(data);
+           if(!err) res.send(data)
            else console.log("Erreur de suppression : " + err) 
         }
     )
