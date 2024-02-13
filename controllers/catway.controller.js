@@ -1,32 +1,37 @@
-
-
 /**
  * @swagger
  * components:
  *   schemas:
- *     Routes:
+ *     Catways:
  *       type: object
  *       required:
  *       properties:
- *         GET: 
- *           type: http://localhost:8000/api/catways
- *           description: afficher la liste des catways
- *         PUT:
- *           type: http://localhost:8000/api/catways/id
- *           description: modifier l'etat d'un catway
- *         POST:
- *           type: http://localhost:8000/api/catways
- *           description: ajouter un catway dans la liste
- *         DELETE:
- *           type: http://localhost:8000/api/catways/id
- *           description: supprimer un catway de la liste      
+ *         id:
+ *           type: string
+ *           description: The auto-generated id of the catway
+ *         catwayNumber:
+ *           type: number
+ *           description: réservations catways
+ *         type:
+ *           type: string
+ *           description: The catway explanation
+ *         catwayState:
+ *           type: string
+ *           description: catway
+ *         createdAt:
+ *           type: string
+ *           format: date
+ *           description: The date the catway was added
+ *         updatedAt:
+ *           type: string
+ *           format: date
  */
 /**
  * @swagger
  *   tags:
  *   name: Plaissance Russell API
  *   description: API de gestion des reservations de catways
- *http://localhost:8000/api/catways:
+ * /api/catways:
  *   get:
  *     summary: La liste des Catways
  *     tags: [Catways]
@@ -38,7 +43,7 @@
  *             schema:
  *               type: array
  *               items:
- *                 $ref: 'http://localhost:8000/api/catways'
+ *                 $ref: '#/components/schemas/Catways'
  *   post:
  *     summary: Créer un catway
  *     tags: [Catways]
@@ -47,17 +52,17 @@
  *       content:
  *         application/json:
  *           schema:
- *             $ref: 'http://localhost:8000/api/catways'
+ *             $ref: '#/components/schemas/Catways'
  *     responses:
  *       200:
  *         description: le catway a été créer avec succès.
  *         content:
  *           application/json:
  *             schema:
- *               $ref: 'http://localhost:8000/api/catways'
+ *               $ref: '#/components/schemas/Catways'
  *       500:
  *         description: Erreur de connexion avec le serveur
- * http://localhost:8000/api/catways/{id}:
+ * /api/catways/{id}:
  *   get:
  *     summary: afficher un catway grace à son id
  *     tags: [Catways]
@@ -74,7 +79,7 @@
  *         contens:
  *           application/json:
  *             schema:
- *               $ref: 'http://localhost:8000/api/catways/id'
+ *               $ref: '#/components/schemas/Catways'
  *       404:
  *         description: Le catway n'a pas été trouvé
  *   put:
@@ -92,14 +97,14 @@
  *      content:
  *        application/json:
  *          schema:
- *            $ref: '#/components/schemas/api/catways/id'
+ *            $ref: '#/components/schemas/Catways'
  *    responses:
  *      200:
  *        description: Le catway a été mise à jour
  *        content:
  *          application/json:
  *            schema:
- *              $ref: '#/components/schemas/api/catways/id'
+ *              $ref: '#/components/schemas/Catways'
  *      404:
  *        description: Le catway n'a pas été trouvé
  *      500:

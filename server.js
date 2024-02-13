@@ -57,7 +57,7 @@ const options = {
 };
 const spacs = swaggerJsDoc(options)
 app.use(
-    "/api-docs",
+    "/plaissance-russell-api",
      swaggerUi.serve,
      swaggerUi.setup(spacs)
       )

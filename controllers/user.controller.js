@@ -1,32 +1,41 @@
-
-
 /**
  * @swagger
  * components:
  *   schemas:
- *     Routes:
+ *     User:
  *       type: object
  *       required:
  *       properties:
- *         
- *         PUT:
- *           type: http://localhost:8000/api/user/id
- *           description: modifier infos utilisateur
- *         
- *         DELETE:
- *           type: http://localhost:8000/api/user/id
- *           description: supprimer infos utilisateur     
+ *         id:
+ *           type: string
+ *           description: The auto-generated id of the catway
+ *         catwayNumber:
+ *           type: number
+ *           description: réservations catways
+ *         type:
+ *           type: string
+ *           description: The catway explanation
+ *         catwayState:
+ *           type: string
+ *           description: catway
+ *         createdAt:
+ *           type: string
+ *           format: date
+ *           description: The date the catway was added
+ *         updatedAt:
+ *           type: string
+ *           format: date
  */
 /**
  * @swagger
  *   tags:
  *   name: Plaissance Russell API
  *   description: API de gestion des reservations de catways
- *http://localhost:8000/api/user/{id}:
+ * /api/user/{id}:
  *
  *   put:
  *    summary: Mise à jour infos utilisateur grâce à son id
- *    tags: [Utilisateur]
+ *    tags: [User]
  *    parameters:
  *      - in: path
  *        name: id
@@ -53,7 +62,7 @@
  *        description: Plusieurs erreurs detectées
  *   delete:
  *     summary: Spprimer un utlisateur grâce à son id
- *     tags: [Utilisateur]
+ *     tags: [User]
  *     parameters:
  *       - in: path
  *         name: id

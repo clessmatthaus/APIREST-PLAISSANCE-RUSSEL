@@ -3,28 +3,18 @@
  * @swagger
  * components:
  *   schemas:
- *     Routes:
- *       type: object
- *       required:
- *       properties:
- *         GET: 
- *           type: http://localhost:8000/api/user/logout
- *           description: Déconnexion
- *         
- *         POST:
- *           type: http://localhost:8000/api/user/login
- *           description: Connexion au compte utilisateur
- *              
+ *     User:
+ *       
  */
 /**
  * @swagger
  *   tags:
  *   name: Plaissance Russell API
  *   description: API de gestion des reservations de catways
- *http://localhost:8000/api/user/logout:
+ * /api/user/logout:
  *   get:
  *     summary: Déconnexion 
- *     tags: [Authentication]
+ *     tags: [User]
  *     responses:
  *       200:
  *         description: Utilisateur Déconnecter
@@ -33,67 +23,84 @@
  *             schema:
  *               type: array
  *               items:
- *                 $ref: 'http://localhost:8000/api/user/logout'
- *http://localhost:8000/api/user/login: 
- *   post:
- *     summary: Connexion au compte utilisateur
- *     tags: [Authentication]
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             $ref: 'http://localhost:8000/api/user/login'
- *     responses:
- *       200:
- *         description: connexion au compte avec succès.
- *         content:
- *           application/json:
- *             schema:
- *               $ref: 'http://localhost:8000/api/user/login'
- *       500:
- *         description: Erreur de connexion au compte
- */
-
-
-
+ *                 $ref: '#/components/schemas/api/user/logout'
+*/
 /**
  * @swagger
  * components:
  *   schemas:
- *     Routes:
+ *     User:
  *       type: object
  *       required:
  *       properties:
- *         
- *         
- *         POST:
- *           type: http://localhost:8000/api/user/register
- *           description: Création de compte utilisateur
- *              
+ *         email:
+ *           type: string
+ *         password:
+ *           type: string
  */
 /**
  * @swagger
  *   tags:
  *   name: Plaissance Russell API
  *   description: API de gestion des reservations de catways
- *http://localhost:8000/api/user/register: 
+ * /api/user/login: 
  *   post:
- *     summary: Création de compte utilisateur
- *     tags: [Authentication]
+ *     summary: Connexion au compte utilisateur
+ *     tags: [User]
  *     requestBody:
  *       required: true
  *       content:
  *         application/json:
  *           schema:
- *             $ref: 'http://localhost:8000/api/user/register'
+ *             $ref: '#/components/schemas/api/user/login'
+ *     responses:
+ *       200:
+ *         description: connexion au compte avec succès.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/api/user/login'
+ *       500:
+ *         description: Erreur de connexion au compte
+ */
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     User:
+ *       type: object
+ *       required:
+ *       properties:
+ *         name:
+ *           type: string
+ *           description: catway
+ *         email:
+ *           type: string
+ *         password:
+ *           type: string
+ */
+/**
+ * @swagger
+ *   tags:
+ *   name: Plaissance Russell API
+ *   description: API de gestion des reservations de catways
+ * /api/user/register: 
+ *   post:
+ *     summary: Création de compte utilisateur
+ *     tags: [User]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/api/user/register'
  *     responses:
  *       200:
  *         description: Le compte a été créer avec succès.
  *         content:
  *           application/json:
  *             schema:
- *               $ref: 'http://localhost:8000/api/user/register'
+ *               $ref: '#/components/schemas/api/user/register'
  *       500:
  *         description: Erreur serveur
  */
