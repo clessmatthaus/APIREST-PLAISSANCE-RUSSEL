@@ -1,3 +1,127 @@
+
+
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     Routes:
+ *       type: object
+ *       required:
+ *       properties:
+ *         GET: 
+ *           type: http://localhost:8000/api/catways
+ *           description: afficher la liste des catways
+ *         PUT:
+ *           type: http://localhost:8000/api/catways/id
+ *           description: modifier l'etat d'un catway
+ *         POST:
+ *           type: http://localhost:8000/api/catways
+ *           description: ajouter un catway dans la liste
+ *         DELETE:
+ *           type: http://localhost:8000/api/catways/id
+ *           description: supprimer un catway de la liste      
+ */
+/**
+ * @swagger
+ *   tags:
+ *   name: Plaissance Russell API
+ *   description: API de gestion des reservations de catways
+ *http://localhost:8000/api/catways:
+ *   get:
+ *     summary: La liste des Catways
+ *     tags: [Catways]
+ *     responses:
+ *       200:
+ *         description: la liste de tous les catways
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: 'http://localhost:8000/api/catways'
+ *   post:
+ *     summary: Créer un catway
+ *     tags: [Catways]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: 'http://localhost:8000/api/catways'
+ *     responses:
+ *       200:
+ *         description: le catway a été créer avec succès.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: 'http://localhost:8000/api/catways'
+ *       500:
+ *         description: Erreur de connexion avec le serveur
+ * http://localhost:8000/api/catways/{id}:
+ *   get:
+ *     summary: afficher un catway grace à son id
+ *     tags: [Catways]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: Merci de renseigner id du catway
+ *     responses:
+ *       200:
+ *         description: response de la requette id
+ *         contens:
+ *           application/json:
+ *             schema:
+ *               $ref: 'http://localhost:8000/api/catways/id'
+ *       404:
+ *         description: Le catway n'a pas été trouvé
+ *   put:
+ *    summary: Mise à jour d'un catway grâce à son id
+ *    tags: [Catways]
+ *    parameters:
+ *      - in: path
+ *        name: id
+ *        schema:
+ *          type: string
+ *        required: true
+ *        description:  Merci de renseigner id du catway
+ *    requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *          schema:
+ *            $ref: '#/components/schemas/api/catways/id'
+ *    responses:
+ *      200:
+ *        description: Le catway a été mise à jour
+ *        content:
+ *          application/json:
+ *            schema:
+ *              $ref: '#/components/schemas/api/catways/id'
+ *      404:
+ *        description: Le catway n'a pas été trouvé
+ *      500:
+ *        description: Plusieurs erreurs detectées
+ *   delete:
+ *     summary: Spprimer un catway grâce à son id
+ *     tags: [Catways]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: Merci de renseigner id du catway
+ *              
+ *     responses:
+ *       200:
+ *         description: Le catway a été trouvé
+ *       404:
+ *         description: Le catway n'a pas été trouvé
+ */
+
 const catwayModel = require('../models/catway.model');
 const ObjectID = require('mongoose').Types.ObjectId;
 
@@ -58,7 +182,7 @@ module.exports.createCatway = async (req, res) => {
     }
 };
 
-//delete catway
+//delete catway by id
 module.exports.deleteCatway = async (req, res) => {
     if (!ObjectID.isValid(req.params.id)) 
     return res.status(400).send('ID unknown : ' + req.params.id)

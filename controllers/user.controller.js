@@ -1,5 +1,74 @@
-const UserModel = require('../models/user.model');
 
+
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     Routes:
+ *       type: object
+ *       required:
+ *       properties:
+ *         
+ *         PUT:
+ *           type: http://localhost:8000/api/user/id
+ *           description: modifier infos utilisateur
+ *         
+ *         DELETE:
+ *           type: http://localhost:8000/api/user/id
+ *           description: supprimer infos utilisateur     
+ */
+/**
+ * @swagger
+ *   tags:
+ *   name: Plaissance Russell API
+ *   description: API de gestion des reservations de catways
+ *http://localhost:8000/api/user/{id}:
+ *
+ *   put:
+ *    summary: Mise à jour infos utilisateur grâce à son id
+ *    tags: [Utilisateur]
+ *    parameters:
+ *      - in: path
+ *        name: id
+ *        schema:
+ *          type: string
+ *        required: true
+ *        description:  Merci de renseigner id de l'utilisateur
+ *    requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *          schema:
+ *            $ref: '#/components/schemas/api/user/id'
+ *    responses:
+ *      200:
+ *        description: infos utilisateur mise à jour
+ *        content:
+ *          application/json:
+ *            schema:
+ *              $ref: '#/components/schemas/api/user/id'
+ *      404:
+ *        description: Utilisateur introuvable
+ *      500:
+ *        description: Plusieurs erreurs detectées
+ *   delete:
+ *     summary: Spprimer un utlisateur grâce à son id
+ *     tags: [Utilisateur]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: Merci de renseigner id de l'utilisateur
+ *              
+ *     responses:
+ *       200:
+ *         description: Utilisateur trouvé
+ *       404:
+ *         description: Utilisateur introuvable
+ */
+const UserModel = require('../models/user.model');
 const ObjectID = require('mongoose').Types.ObjectId;
 
 //get users list
