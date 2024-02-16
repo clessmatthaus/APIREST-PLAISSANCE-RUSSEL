@@ -1,0 +1,7 @@
+.App {
+  text-align: center;
+}
+@font-face{
+  font-family: Graphik;
+  src:url(../public/Graphik-Black-Trial.otf);
+}

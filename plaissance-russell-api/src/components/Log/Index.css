@@ -1,0 +1,101 @@
+.form-i{
+   width: 100%; 
+   padding-top:50px;
+}
+.inputs{
+   width: 600px;
+   height: 50px;
+   border:1px solid rgb(254, 240, 240);
+   border-bottom:2px solid rgb(248, 203, 203);
+   border-left:2px solid rgb(248, 203, 203);
+   margin-bottom:30px;
+   transition: 0.3s;
+   padding-left:6px;
+   color:gray;
+   box-shadow: 1px 1px 1px rgba(246, 221, 221, 0.418);
+}
+h2{
+   text-align:center;
+}
+.btn-successe{
+   background-color:#034862;
+   color:white;
+}
+.btn-successe:hover{
+   background-color:green;
+   color:white;
+}
+.btn-dangers{
+   background-color:#4C0303;
+   color:white;
+}
+.btn-dangers:hover{
+   background-color:rgb(248, 203, 203);
+   color:gray;
+}
+.btn-succeful{
+   background-color:green;
+   color:white; 
+}
+.main-section{
+   width:100%;
+   display:flex;
+   justify-content: right;
+   padding-right:70px;
+}
+.ul-div {
+   display:flex;
+   align-items:center;
+   margin-bottom:40px;
+   
+}
+.ul-div ul{
+   width:100%; 
+   font-weight:bold;
+   cursor:pointer;
+   justify-content:space-between;
+}
+.input-check{
+   display:flex;
+   flex-direction:row;
+   align-items:center;
+   justify-content:left;
+   margin-top:-20px;
+   margin-bottom:30px;
+}
+.checkbox1{
+   cursor:pointer;
+}
+h3{
+   margin-top: 100px;
+}
+p{
+   margin-top:15px;
+   margin-left:10px;
+}
+.check-span{
+   color:blue;
+   cursor:pointer;
+}
+.li-btn{
+   padding:10px;
+   background-color:#034862;
+   color:white;
+   border:1px solid #034862;
+   border-radius:5px;
+   transition: 0.3s;
+   box-shadow: 2px 2px 1px rgba(51, 51, 51, 0.418);
+}
+.error {
+   color: red;
+   font-weight: bold;
+ }
+ .success {
+   color: green;
+   font-weight: bold;
+ }
+ input[type="checkbox"] {
+   box-shadow: none;
+   width: 20px;
+   margin: 10px 0;
+ }
