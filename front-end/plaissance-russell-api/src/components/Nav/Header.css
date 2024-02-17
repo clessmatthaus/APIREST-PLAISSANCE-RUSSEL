@@ -1,0 +1,33 @@
+.containers{
+    width:18%;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    background-color: whitesmoke;
+    justify-content:space-between;
+    padding:0 20px;
+    border-right:5px solid white;
+}
+
+
+.logo{
+    cursor:pointer;
+    height:120px;
+}
+.user-profil{
+    padding :10px;
+    height:100%;
+    width:10%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    
+}
+.profilIcon{
+width:32px;
+border:2px solid #034862;
+border-radius:50%;
+padding:5px;
+cursor:pointer;
+}
