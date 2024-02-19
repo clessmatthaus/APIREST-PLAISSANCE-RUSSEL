@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const bcrypt = require("bcryptjs");
 
 const userSchema = mongoose.Schema({
 
@@ -15,21 +16,29 @@ const userSchema = mongoose.Schema({
     "Veuillez saisir un e-mail vailde"]
     },
     password: {
-        type: string,
+        type: String,
         required: [true, "Merci de saisir un mot de passe"],
-        minLength: [6, "Le mot de passe doit contenir au minimum 6 caractéres"],
-        maxLength: [26, "Le mot de passe ne doit pas contenir plus de 26 caractéres"]
+        minLength: [8, "Le mot de passe doit contenir au minimum 8 caractéres"],
+        //maxLength: [26, "Le mot de passe ne doit pas contenir plus de 26 caractéres"]
     },
     photo: {
-        type: string,
+        type: String,
         required: [true, "une photo de profil ? "],
         default: "https://www.gravatar.com/avatar/3b3be63a4c2a439b013787725dfce802?d=identicon"
-    },
-    phone: {
-        type: string,
-        default: ""
     }
 }, {timestamps: true,});
+
+ //encrypt password
+userSchema.pre("save", async function() {
+     if (!this.isModified("password")) {
+        return next();
+    }    
+//hash password
+const salt = await bcrypt.genSalt(10)
+const hashedPassword = await bcrypt.hash(this.password, salt)
+this.password = hashedPassword;
+
+});
 
 const User = mongoose.model("User", userSchema)
 module.exports = User
