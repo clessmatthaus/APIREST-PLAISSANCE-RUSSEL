@@ -7,7 +7,7 @@ const genereteToken = (id) => {
     return jwt.sign({id}, process.env.JWT_SECRET, {expiresIn: "1d"})
 }
 
-//register User
+//register User fonctionality
 const registerUser = asyncHandler( async (req, res) => {
    const {name, email, password} = req.body
 
@@ -93,9 +93,87 @@ const logout = asyncHandler(async(req, res) => {
     return res.status(200).json({message: "déconnexion reussie"})
 });
 
+//get user data
+const getUser = asyncHandler( async(req, res) => {
+    const user = await User.findById(req.user._id)
+    if(user){
+    const {_id, name, email, photo} = user
+    res.status(200).json({
+        _id, name, email, photo
+    });
+    }else {
+        res.status(400)
+        throw new Error("utilisateur non trouvé");
+     }
+});
 
+// login status fonctionality
+const connected = asyncHandler(async (req, res) => {
+    const token = req.cookies.token
+    if(!token){
+        return res.json(false)
+    }
+    //token verify
+    const control = jwt.verify(token, process.env.JWT_SECRET)
+    if(control) {
+        return res.json(true)
+    }
+    return res.json(false)
+});
+
+//update user (name & photo) fonctionality
+const updateUser = asyncHandler(async (req, res) => {
+    const user = await User.findById(req.user._id)
+
+    if (user) {
+        const {name, email, photo} = user;
+        user.email = email;
+        user.name = req.body.name || name;
+        user.photo = req.body.photo || photo;
+
+        const updatedUser = await user.save();
+        res.status(200).json({_id: updatedUser._id, name: updatedUser.name, email: updatedUser.email, photo: updatedUser.photo })
+    } else{
+        res.status(404)
+        throw new Error("utilisateur introuvable")
+    }
+});
+
+//modify password fonctionality
+const changePassword = asyncHandler( async (req, res) => { 
+    const user = await User.findById(req.user._id)
+
+    // if user doesnt exist
+    if(!user) {
+        res.status(400)
+        throw new Error("Utilisateur introuvable, créer un compte !")
+    }
+ const {oldPassword, password} = req.body
+    //validate
+    if(!oldPassword || !password) {
+        res.status(400)       
+        throw new Error("Veuillez renseigner l'ancien et le le nouveau mot de passe")
+    }
+
+    //control if password matches with password in DB
+    const passwordCorrect = await bcrypt.compare(oldPassword, user.password)
+
+    //save new password
+    if(user && passwordCorrect) {
+        user.password = password
+        await user.save()
+        res.status(200).send("le mot de passe a été modifié avec succès")
+    }else {     
+        res.status(400)
+        throw new Error("l'ancien mot de passe est incorrect")
+    }
+})
 module.exports = {
     registerUser,
     loginUser,
-    logout
+    logout,
+    getUser,
+    connected,
+    updateUser,
+    changePassword
 }
