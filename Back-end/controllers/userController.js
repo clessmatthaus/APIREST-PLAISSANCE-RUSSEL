@@ -1,7 +1,12 @@
-const asyncHandler = require("express-async-handler")
-const User = require("../models/userModel")
-const jwt = require("jsonwebtoken")
-const bcrypt = require("bcryptjs")
+const asyncHandler = require("express-async-handler");
+const User = require("../models/userModel");
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
+const Token = require("../models/tokenModel");
+const crypto = require("crypto");
+const { restart } = require("nodemon");
+const sendEmail = require("../utils/sendEmail");
+
 
 const genereteToken = (id) => { 
     return jwt.sign({id}, process.env.JWT_SECRET, {expiresIn: "1d"})
@@ -168,6 +173,55 @@ const changePassword = asyncHandler( async (req, res) => {
         throw new Error("l'ancien mot de passe est incorrect")
     }
 })
+
+//forgot Password
+const forgotPassword = asyncHandler (async (req, res) => {
+    const {email} = req.body
+    const user = await User.findOne({email})
+
+    if(!user) {
+        res.status(404)
+        throw new Error("Cet utilisateur n'existe pas")
+    }
+
+let token = await Token.findOne({userId: user._id})
+    if(token){ await token.deleteOne()}
+
+   let resetToken = crypto.randomBytes(22).toString("hex") + user._id
+   
+   const hashedToken = crypto.createHash("sha256").update(resetToken).digest("hex")
+     //console.log(hashedToken)
+    await new Token({ userId: user._id, token: hashedToken, createdAt: Date.now(), expiresAt: Date.now() + 35 * (60 * 1000)}).save()
+
+    const resetUrl = `${process.env.FRONT_URL}/resetpassword/${resetToken}`
+
+    const message = `<h3> ${user.name}</h3>
+    <p>Veuillez utiliser l'url ci dessous pour réinitialiser votre mot de passe.</p>
+
+    <p>Ce lien de réinitialisation est valable 35 minutes.</p>
+
+    <a href=${resetUrl} clicktracking=off>${resetUrl}</a>
+
+    <p>Cordialement.</p>
+    <p>l'Equipe technique</p>
+    `;
+    const subject = "demande de réinitialisation du mot de passe"
+    const send_to = user.email
+    const sent_from = process.env.EMAIL_USER
+
+    try {
+        await sendEmail(subject, message, send_to, sent_from)
+        res.status(200).json({success: true, message: "réinitialisation de l-email envoyé"})
+    } catch (error) {
+        res.status(500)
+        throw new Error("Email non envoyé, veuillez réessayer")
+    }
+});
+
+//reset password
+const resetPassword = asyncHandler(async(req, res) => {
+    res.send("reset password");
+})
 module.exports = {
     registerUser,
     loginUser,
@@ -175,5 +229,7 @@ module.exports = {
     getUser,
     connected,
     updateUser,
-    changePassword
+    changePassword,
+    forgotPassword,
+    resetPassword
 }
