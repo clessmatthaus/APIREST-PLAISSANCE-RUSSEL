@@ -7,6 +7,7 @@ const userRoute = require("./routes/userRoute");
 const errorHandler = require("./middleware/errorMiddleware");
 const cookieParser = require("cookie-parser");
 const catwayRoute = require("./routes/catwayRoute");
+const reservationRoutes = require('./routes/reservationRoute');
 const path = require('path');
 
 
@@ -25,6 +26,7 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 //routes middlewares
 app.use("/api/users", userRoute);
 app.use("/api/catways", catwayRoute);
+app.use('/api/catways/id/reservations', reservationRoutes);
 
 //routes
 app.get("/", (req, res) => {
