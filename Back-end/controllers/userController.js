@@ -119,7 +119,7 @@ const connected = asyncHandler(async (req, res) => {
         return res.json(false)
     }
     //token verify
-    const control = jwt.verify(token, process.env.JWT_SECRET)
+const control = jwt.verify(token, process.env.JWT_SECRET)
     if(control) {
         return res.json(true)
     }
@@ -161,7 +161,7 @@ const changePassword = asyncHandler( async (req, res) => {
     }
 
     //control if password matches with password in DB
-    const passwordCorrect = await bcrypt.compare(oldPassword, user.password)
+const passwordCorrect = await bcrypt.compare(oldPassword, user.password)
 
     //save new password
     if(user && passwordCorrect) {
@@ -188,6 +188,7 @@ let token = await Token.findOne({userId: user._id})
     if(token){ await token.deleteOne()}
 
    let resetToken = crypto.randomBytes(22).toString("hex") + user._id
+   console.log(resetToken)
    
    const hashedToken = crypto.createHash("sha256").update(resetToken).digest("hex")
      //console.log(hashedToken)
@@ -220,8 +221,28 @@ let token = await Token.findOne({userId: user._id})
 
 //reset password
 const resetPassword = asyncHandler(async(req, res) => {
-    res.send("reset password");
-})
+
+    const {password} = req.body
+    const {resetToken} = req.params
+
+    const hashedToken = crypto.createHash("sha256").update(resetToken).digest("hex")
+
+    const userToken = await Token.findOne({
+        token: hashedToken, 
+        expiresAt: {$gt: Date.now()}
+    })
+    if (!userToken) {
+        res.status(404)
+        throw new Error("Jeton invalide ou expiré")
+    }
+
+    const user = await User.findOne({_id: userToken.userId})
+    user.password = password
+    await user.save()
+    res.status(200).json({
+        message: "Le mot de passe a été réinitialisé avec succès, veuillez vous connecter"
+    }) 
+});
 module.exports = {
     registerUser,
     loginUser,

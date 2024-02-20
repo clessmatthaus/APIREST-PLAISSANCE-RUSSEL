@@ -6,6 +6,8 @@ const cors = require("cors");
 const userRoute = require("./routes/userRoute");
 const errorHandler = require("./middleware/errorMiddleware");
 const cookieParser = require("cookie-parser");
+const catwayRoute = require("./routes/catwayRoute");
+
 
 
 const app = express();
@@ -15,8 +17,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
 app.use(bodyParser.json());
 app.use(cookieParser());
+app.use(cors());
+
 //routes middlewares
 app.use("/api/users", userRoute);
+app.use("/api/catways", catwayRoute);
 
 //routes
 app.get("/", (req, res) => {
