@@ -7,6 +7,7 @@ const userRoute = require("./routes/userRoute");
 const errorHandler = require("./middleware/errorMiddleware");
 const cookieParser = require("cookie-parser");
 const catwayRoute = require("./routes/catwayRoute");
+const path = require('path');
 
 
 
@@ -18,6 +19,8 @@ app.use(express.urlencoded({ extended: false}));
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(cors());
+
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 //routes middlewares
 app.use("/api/users", userRoute);
