@@ -2,14 +2,10 @@ import { FaTh } from "react-icons/fa";
 import { MdAddChart, MdLibraryAdd, MdManageAccounts, MdContactMail  } from "react-icons/md";
 
 const menu = [
-  {
-    title: "Dashboard",
-    icon: <FaTh />,
-    path: "/dashboardcontent",
-  },
+  
   {
     title: "Mon compte",
-    icon: <MdManageAccounts />,
+    icon: <MdManageAccounts size={35}/>,
     childrens: [
       {
         title: "Profil",
@@ -22,18 +18,23 @@ const menu = [
     ],
   },
   {
+    title: "Dashboard",
+    icon: <FaTh  size={30}/>,
+    path: "/dashboardcontent",
+  },
+  {
     title: "Créer un Catway",
-    icon: <MdLibraryAdd />,
+    icon: <MdLibraryAdd size={30}/>,
     path: "/add-catway",
   },
   {
     title: "Créer une Réservation",
-    icon: <MdAddChart />,
+    icon: <MdAddChart size={30}/>,
     path: "/add-reservation",
   },
   {
     title: "Signaler un Bugg",
-    icon: <MdContactMail />,
+    icon: <MdContactMail size={30}/>,
     path: "/contact-us",
   },
 ];
