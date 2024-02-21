@@ -3,9 +3,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import {useState} from 'react'
 import Index from './Index.css';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const SignIn = () => {
-  const [email, setEmail] = useState('');
+ const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = (e) => {
@@ -38,13 +39,14 @@ const SignIn = () => {
     
     <div className='form-i'>
       <h5>Connecter-vous à votre compte Admin</h5>
+      <br/>
       <form action=" " onSubmit={handleLogin} id="sign-in-form">
         <input 
          type='email'
          name='email'
          placeholder='Adresse e-mail' 
          required
-         className='inputs' 
+         className='inputs-forgot' 
          id="email" 
          onChange={(e) => setEmail(e.target.value)}
          value={email} /> 
@@ -55,13 +57,16 @@ const SignIn = () => {
         name='password'
         placeholder='Mot de passe'
         required
-        className='inputs'
+        className='inputs-forgot'
         id="password" 
         onChange={(e) => setPassword(e.target.value)}
         value={password}/> 
+        <div className='forgot'>
+        <Link to="/forgot" className='no-deco1'>Mot de passe oublié ?</Link>
+        </div>
         <div className="password error "></div>
         <br/>
-        <input type='submit' value="Connexion" className='btn btn-successe w-100 rounded-0'/>
+        <input type='submit' value="Connexion" className='btn btn-success w-100 rounded-0'/>
       </form>      
     </div>
     </div>

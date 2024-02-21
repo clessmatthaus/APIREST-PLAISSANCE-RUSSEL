@@ -1,33 +1,33 @@
 .containers{
-    width:18%;
+    width:100%;
     display:flex;
     flex-direction:row;
     align-items:center;
-    background-color: whitesmoke;
+    background-color: #034862;
     justify-content:space-between;
-    padding:0 20px;
-    border-right:5px solid white;
+    padding:20px 20px;
+    z-index:5001;  
+    position:fixed;
 }
-
 
 .logo{
     cursor:pointer;
     height:120px;
+    margin-left: 70px;
+    z-index:5005;
+    cursor:pointer;
 }
 .user-profil{
-    padding :10px;
+    padding :2px;
     height:100%;
-    width:10%;
+    border-radius:50%;
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    
-}
-.profilIcon{
-width:32px;
-border:2px solid #034862;
-border-radius:50%;
-padding:5px;
-cursor:pointer;
+    background-color:white;
+    border:2px solid gray;
+    margin-right: 60px;
+    z-index:5005;
+    cursor:pointer;
 }

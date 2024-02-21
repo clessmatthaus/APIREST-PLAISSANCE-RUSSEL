@@ -1,18 +1,27 @@
 import React from 'react'
 import Header from '../components/Nav/Header'
+import Footer from '../components/Footer/Footer'
+import LayoutAside from '../components/LayoutAside/LayoutAside'
 import dashboard from '../styles/dashboard.css'
-import userIcon from '../components/Nav/user-solids.svg'
+import Sidebar from '../components/Sidebar/Sidebar';
+
 
 function Dashboard() {
   return (
     <div className='dashboards'>
       <Header/>
       <section className="aside-left">
-        <div className="status-profil">
-          <img src={userIcon} className="status-icon" alt=''/>
-          <h5>Admin : </h5>
-        </div>
+      <Sidebar />
       </section>
+      <>
+        <div className="layout-aside">
+          <LayoutAside/>
+        </div>
+       
+      </>
+       <div className="footer">
+          <Footer/>
+        </div>
     </div>
   )
 }

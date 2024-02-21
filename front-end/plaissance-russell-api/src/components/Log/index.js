@@ -3,6 +3,7 @@ import {useState} from 'react'
 import SignIn from './SignIn'
 import SignUp from './SignUp'
 import index from './Index.css';
+import { Link } from 'react-router-dom';
 
 const Index = () => {
   const [signInModal, setSignInModal] = useState(true);
@@ -24,8 +25,13 @@ const Index = () => {
       <div className='form-import'>
         <div className="ul-div">
           <ul>
-            <li onClick={handleModal} id="login" className={signInModal ? "li-btn" : null}>Se connecter</li>
-            <li onClick={handleModal} id="register" className={signUpModal ? "li-btn" : null}>Créer un compte Admin</li>
+            <li onClick={handleModal} id="login" className={signInModal ? "li-btn1" : null}>Se connecter</li>
+            <li onClick={handleModal} id="register" className={signUpModal ? "li-btn2" : null}>Créer un compte Admin</li>
+            <li>
+              <button className='li-btn'>
+                <Link to="/dashboard" className='no-deco'>Dashboard</Link>
+              </button>
+            </li>
           </ul>
         </div>
         {signInModal && <SignIn />}

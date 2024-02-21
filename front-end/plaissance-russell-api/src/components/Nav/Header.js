@@ -1,7 +1,8 @@
 import React from 'react'
-import logo from './ic-bas.png'
-import profilIcon from './logout.svg'
+import logo from './ikons.png'
+//import profilIcon from './logout.svg'
 import header from './Header.css'
+import { AiOutlineLogout } from "react-icons/ai";
 
 function Header() {
   return (
@@ -11,7 +12,7 @@ function Header() {
           <img src={logo} className="logo" alt=''/>
         </div>
         <div className="user-profil">
-        <img src={profilIcon} className="profilIcon" alt=''/>
+        <AiOutlineLogout size={30}/>
         </div>
       </div>
     </div>
