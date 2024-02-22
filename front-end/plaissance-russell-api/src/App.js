@@ -11,10 +11,11 @@ import Reservations from './pages/Reservations';
 import DashBoardContent from './pages/DashBoardContent';
 import Auth from './pages/Auth';
 
+
 function App() {
   return (
     <div>
-        <Routes>
+        <Routes>    
           <Route path='/' element={<Auth/>} />
           <Route path='/forgot' element={<Forgot/>} />
           <Route path='/resetpassword/:resetToken' element={<Reset/>} />

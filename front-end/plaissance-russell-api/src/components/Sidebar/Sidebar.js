@@ -4,6 +4,7 @@ import { TbMenuDeep } from "react-icons/tb";
 import menu from "../../data/sidebar"
 import SidebarItems from "./SidebarItems"
 import { useState } from 'react';
+import { useNavigate } from "react-router-dom"
 
 
 
@@ -11,7 +12,11 @@ function Sidebar() {
 
   const [isOpen, setIsOpen] = useState(true);
   const toggle = () => setIsOpen(!isOpen);
+  const navigate = useNavigate()
 
+  //const goToHome = () => {
+    //navigate("/")
+  //}
   return (
     <div className='sidebar'style={{width: isOpen ? "345px" : "200px"}}>
         <div className="sidebar-content">

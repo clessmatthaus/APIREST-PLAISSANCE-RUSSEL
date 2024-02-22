@@ -109,3 +109,48 @@
 .btn-links{
     margin-top: 70px;
 }
+
+/***************************************************/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.home-page{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    min-height: 100vh;
+    background-image:url("./russell2.png");
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-color:#034862;
+    z-index:-1;
+
+}
+.bg-img{
+    width: 100%;
+    min-height: 100vh;
+    position: absolute;
+    background: linear-gradient(635deg, #034862, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0),#034862);
+    backdrop-filter: blur(1px);
+    padding:150px;
+    z-index:5;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.preload{
+    width: 100%;
+    min-height: 100%;
+    position: absolute; 
+    background: linear-gradient(135deg, white, rgba(0, 0, 0, 0));
+    z-index:5001;
+    backdrop-filter: blur(20px);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}

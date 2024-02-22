@@ -5,16 +5,38 @@ import newspaper from './newspaper.svg'
 import russell from './russell2.png'
 //import Index from '../components/Log/index';
 import Log from '../components/Log';
+import { useState, useEffect } from 'react'
+import GridLoader from "react-spinners/GridLoader";
+
 
 const Auth = () => {
-  return ( 
-    <div class="main-block">
+ 
+  const [loading, setLoading] = useState(false)
+  useEffect(()=> {
+    setLoading(true)
+    setTimeout(()=> {
+      setLoading(false)
+    }, 5000)
+  }, [])
+
+  return  (
+    <>
+    {
+    loading ?
+      (<div className='home-page'>
+        <div className='bg-img'>
+            <div className='preload'>
+            <GridLoader color={"#FFFFFF"} loading={loading} size={120}/>
+            </div>
+        </div>
+      </div>)
+      :
+      (<div class="main-block">
       <div className="home-block">
        <div className="home-container">
        <div className='header-container'>
               <img src={logo} className="logo1" alt='' />
-        </div>
-            
+        </div>  
         </div>
           <div className="home">
               <div className='log'>
@@ -31,6 +53,10 @@ const Auth = () => {
             </div>
            </div>
            </div>
-      )}  
+           )
+        }
+        </>   
+        )    
+    }  
 
 export default Auth;

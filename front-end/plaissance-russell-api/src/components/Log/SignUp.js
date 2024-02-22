@@ -24,7 +24,7 @@ function SignUp() {
         </div>
         <br/>
         <div className="input-check"><input type="checkbox" className="checkbox1"/> <p>J'accepte les <span className="check-span">conditions générales</span></p></div>
-        <button type='submit' className='btn btn-danger w-100 rounded-0'>Créer mon compte</button>
+        <button type='submit' className='btn btn-dark w-100 rounded-2'>Créer mon compte</button>
       </form>
       
     </div>

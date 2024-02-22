@@ -3,7 +3,7 @@ import {useState} from 'react'
 import SignIn from './SignIn'
 import SignUp from './SignUp'
 import index from './Index.css';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Index = () => {
   const [signInModal, setSignInModal] = useState(true);
@@ -29,7 +29,7 @@ const Index = () => {
             <li onClick={handleModal} id="register" className={signUpModal ? "li-btn2" : null}>Créer un compte Admin</li>
             <li>
               <button className='li-btn'>
-                <Link to="/dashboard" className='no-deco'>Dashboard</Link>
+                <NavLink to="/dashboard" className='no-deco'>Dashboard</NavLink>
               </button>
             </li>
           </ul>
