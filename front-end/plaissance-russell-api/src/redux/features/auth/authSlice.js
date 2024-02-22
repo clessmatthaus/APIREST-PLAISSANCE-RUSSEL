@@ -8,7 +8,7 @@ user: {
   name: "",
   email: "",
   photo: ""
-},
+  },
 }
 
 const authSlice = createSlice({

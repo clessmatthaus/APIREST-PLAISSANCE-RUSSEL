@@ -23,6 +23,7 @@ function Sidebar() {
 
         <div className="top-section">
         <div className="menu-icon" style={{marginRight: isOpen ? "0px" : "50px"}}>
+         
           <TbMenuDeep size={30} onClick={toggle}/>
         </div>
         </div>

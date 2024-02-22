@@ -10,11 +10,16 @@ import Reset from './components/Log/Reset';
 import Reservations from './pages/Reservations';
 import DashBoardContent from './pages/DashBoardContent';
 import Auth from './pages/Auth';
+import  axios  from 'axios';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+axios.defaults.withCredentials = true;
 
 function App() {
   return (
     <div>
+      <ToastContainer />
         <Routes>    
           <Route path='/' element={<Auth/>} />
           <Route path='/forgot' element={<Forgot/>} />

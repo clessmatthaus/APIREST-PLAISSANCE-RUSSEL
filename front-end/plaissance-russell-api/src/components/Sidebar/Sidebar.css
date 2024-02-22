@@ -1,3 +1,7 @@
+@font-face{
+  font-family: Graphik;
+  src:url(../../../public/Graphik-Black-Trial.otf);
+}
 .sidebar{
     width:100%;
     height:100vh;
@@ -30,23 +34,7 @@
 }
 
 /**************************************************/
- /* .logo {
-    font-size: 30px;
-    color: white;
-  }
-  .bars {
-    display: flex;
-    font-size: 25px;
-    margin-left: 70px;
-    cursor: pointer;
-    color: white;
-    transition: all 0.3s;
-  }
-  
-  .bars:hover {
-    color: green;
-    font-size: 27px;
-  }*/
+
   .layout {
     display: flex;
   }
@@ -133,7 +121,6 @@
     font-style: none;
     transition: all 0.2s;
     font-weight: bold;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   }
   .b{
     color: rgb(139, 3, 3);

@@ -29,7 +29,7 @@ const Index = () => {
             <li onClick={handleModal} id="register" className={signUpModal ? "li-btn2" : null}>Créer un compte Admin</li>
             <li>
               <button className='li-btn'>
-                <NavLink to="/dashboard" className='no-deco'>Dashboard</NavLink>
+                <NavLink to="/dashboard" className='no-deco'>Aller sur le Dashboard</NavLink>
               </button>
             </li>
           </ul>
