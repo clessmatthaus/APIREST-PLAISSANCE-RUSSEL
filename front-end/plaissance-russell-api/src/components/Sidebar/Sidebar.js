@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom"
 
 
 
-function Sidebar() {
+function Sidebar({children }) {
 
   const [isOpen, setIsOpen] = useState(true);
   const toggle = () => setIsOpen(!isOpen);
@@ -18,6 +18,7 @@ function Sidebar() {
     //navigate("/")
   //}
   return (
+    <div className="layout">
     <div className='sidebar'style={{width: isOpen ? "345px" : "200px"}}>
         <div className="sidebar-content">
 
@@ -34,10 +35,11 @@ function Sidebar() {
         
         <div>
             <main style={{paddingLeft: isOpen ?  "345px" : "200px", transition: "all .5s"}}>
-               
+               {children}
             </main>
         </div>
      
+    </div>
     </div>
   )
 }

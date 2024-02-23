@@ -1,7 +1,12 @@
 .footer{
-    width:82%;
-    margin-left:18%;
-    margin-top:-59px;
+    width:100%;
     text-align:center;
+    background-color:#034862;
+    display:flex;
     color: white;
+    z-index:5001;  
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    
 }

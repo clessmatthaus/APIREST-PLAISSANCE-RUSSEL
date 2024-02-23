@@ -2,14 +2,12 @@ import './App.css';
 import React from 'react';
 import {Route, Routes} from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
-import Catways from './pages/Catways';
+import AddCatway from './pages/Catway/AddCatway';
+import CatwayForm from './components/CatwayForm/CatwayForm';
 import Forgot from './components/Log/Forgot';
-import Sidebar from './components/Sidebar/Sidebar';
-import LayoutAside from './components/LayoutAside/LayoutAside';
 import Reset from './components/Log/Reset';
 import index from './components/Log/index';
 import Reservations from './pages/Reservations';
-import DashBoardContent from './pages/DashBoardContent';
 import Auth from './pages/Auth';
 import  axios  from 'axios';
 import {useEffect} from 'react'
@@ -19,6 +17,9 @@ import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import {getLoginStatus} from "./services/authServices"
 import {SET_LOGIN} from "./redux/features/auth/authSlice"
+import Layout from './components/layout/Layout';
+import Sidebar from './components/Sidebar/Sidebar';
+
 
 axios.defaults.withCredentials = true;
 
@@ -42,18 +43,30 @@ function App() {
           <Route path='/login' element={<index/>} />
           <Route path='/forgot' element={<Forgot/>} />
           <Route path='/resetpassword/:resetToken' element={<Reset/>} />
-          <Route path='/dashboard' element={<Dashboard/>} />
-          <Route path='/catways' element={<Catways/>} />
           <Route path='/reservations' element={<Reservations/>} />
-
-          <Route path='/dashboardcontent' 
+          <Route path='/catwayform' element={<AddCatway/>} />
+        <Route
+          path="/dashboard"
+          element={  
+           
+               <Layout><Sidebar>
+                <Dashboard />
+               </Sidebar> </Layout>
+             
+          }
+        />
+        <Route
+          path="/add-catway"
           element={
-          <Sidebar>
-            <LayoutAside>
-              <DashBoardContent />
-            </LayoutAside>
-          </Sidebar>
-                   } />
+                
+                  <Layout><Sidebar>
+                <AddCatway />
+                 </Sidebar> </Layout>
+              
+             
+          }
+        />
+
         </Routes>
     </div>
   )

@@ -1,0 +1,15 @@
+.content{
+    width:100%;
+    min-height:100vh;
+    padding:00px;
+    background-color: #034862;
+    color:white;
+    display:flex;
+    flex-direction:row;
+}
+/*.--pad {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+    
+  }*/

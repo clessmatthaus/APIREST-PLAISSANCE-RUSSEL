@@ -27,7 +27,7 @@ const Auth = () => {
       (<div className='home-page'>
         <div className='bg-img'>
             <div className='preload'>
-            <GridLoader color={"#FFFFFF"} loading={loading} size={80}/>
+            <GridLoader color={"#FFFFFF"} loading={loading} size={60}/>
             </div>
         </div>
       </div>)

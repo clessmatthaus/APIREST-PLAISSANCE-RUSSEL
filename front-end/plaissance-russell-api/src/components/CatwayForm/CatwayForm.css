@@ -1,0 +1,59 @@
+.cat-form{
+    width:60%;
+    min-height:70vh;
+    margin-left:800px;
+    margin-top:-720px;
+    border:1px solid white;
+    background-color:white;
+    border-radius: 5px;
+    display:flex;
+    padding:10px;
+    z-index:6000;
+    color:#034862;
+    
+}
+.content-form{
+    width: 100%;
+    height:100%;
+    padding:10px;
+    border:1px solid transparent;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding-bottom:20px;
+}
+.cards{
+    border: 1px solid transparent;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px 1px white;
+    overflow: hidden;
+    width:100%;
+    height:100%;
+    padding:10px;
+    color:#034862;
+    justify-content:center;
+    align-items:center;
+    display:flex;
+    flex-direction:column;
+  }
+  .group{
+    width:100%;
+    height:100%;
+    justify-content:center;
+    align-items:center;
+    display:flex;
+    gap:5px;
+    color:#034862;
+    flex-direction:column;
+  }
+  .inputse{
+    border:2px solid whitesmoke;
+    margin-bottom:20px;
+    width:100%;
+    height:40px;
+    padding:0 10px;
+  }
+  .textzone{
+    height:280px;
+    margin-bottom:20px;
+  }

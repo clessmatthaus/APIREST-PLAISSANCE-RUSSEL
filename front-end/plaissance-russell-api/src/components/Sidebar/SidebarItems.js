@@ -43,7 +43,6 @@ function SidebarItems({item, isOpen}) {
             )
           })}
       </div>
-
       </div>
       );
   } else { return(

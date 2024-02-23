@@ -20,7 +20,7 @@ const menu = [
   {
     title: "Dashboard",
     icon: <FaTh  size={30}/>,
-    path: "/dashboardcontent",
+    path: "/dashboard",
   },
   {
     title: "Créer un Catway",

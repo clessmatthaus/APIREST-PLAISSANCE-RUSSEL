@@ -31,7 +31,7 @@ function Header() {
         <Link to="/"> <img src={logo} className="logo" alt='' /></Link> 
         </div>
         <div className='username'>
-        <img src={login}  alt='online' width="70px"/> 
+        <img src={login}  alt='online' width="50px"/> 
           <p>{name}</p>
         </div>
         <div  className="user-profil">

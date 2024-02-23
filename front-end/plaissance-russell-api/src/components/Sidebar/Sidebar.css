@@ -4,21 +4,22 @@
 }
 .sidebar{
     width:100%;
-    height:100vh;
+    height:75vh;
     display:flex;
     flex-direction:column;
     align-items:center;
-    padding-top:195px;
+    margin-top:50px;
+    color: #034862;
     justify-content:center;
 }
 .sidebar-content{
     width:95%;
     height:100vh;
     margin-top:2px;
-    background-color:rgb(241, 239, 239);
+    background-color: rgb(241, 239, 239);;
     border:10px solid white;
-    z-index:5005;
-    padding:5px             ;
+    z-index:5105;
+    padding:5px  ;
     border-radius:3px;
 }
 .top-section{
@@ -37,6 +38,7 @@
 
   .layout {
     display: flex;
+   
   }
   main {
     width: 100%;

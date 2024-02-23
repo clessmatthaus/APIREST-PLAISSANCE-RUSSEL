@@ -64,9 +64,9 @@
     width: 60%;
     height: 110vh;
     background:#034862;
-    background-image:url("./russell2.png");
+    background-image:url("./bgr.png");
     background-repeat:no-repeat;
-    background-size:1490px;
+    background-size:1170px;
     padding: 0px;
     color: white;
     text-align: left;
@@ -90,7 +90,7 @@
 }
 .presentation{
     width: 100%;
-    margin-top: 150px;
+    margin-top: 130px;
 }
 .doc{
     display:flex;
