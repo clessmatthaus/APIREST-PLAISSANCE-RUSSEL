@@ -4,9 +4,11 @@ import Footer from '../components/Footer/Footer'
 import LayoutAside from '../components/LayoutAside/LayoutAside'
 import dashboard from '../styles/dashboard.css'
 import Sidebar from '../components/Sidebar/Sidebar';
+import UseRedirectLogOut from "../HookDirection/useRedirectLogOut"
 
 
 function Dashboard() {
+  UseRedirectLogOut("/")
   return (
     <div className='dashboards'>
       <Header/>

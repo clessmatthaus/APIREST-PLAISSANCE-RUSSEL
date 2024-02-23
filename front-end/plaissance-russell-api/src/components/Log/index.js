@@ -4,6 +4,7 @@ import SignIn from './SignIn'
 import SignUp from './SignUp'
 import index from './Index.css';
 import { NavLink } from 'react-router-dom';
+import { ShowOnLogout, ShowOnLogin } from '../Hidden/HiddenLinks';
 
 const Index = () => {
   const [signInModal, setSignInModal] = useState(true);
@@ -25,17 +26,25 @@ const Index = () => {
       <div className='form-import'>
         <div className="ul-div">
           <ul>
+            <ShowOnLogout>
             <li onClick={handleModal} id="login" className={signInModal ? "li-btn1" : null}>Se connecter</li>
-            <li onClick={handleModal} id="register" className={signUpModal ? "li-btn2" : null}>Créer un compte Admin</li>
+            </ShowOnLogout>
+            <ShowOnLogout>
+              <li onClick={handleModal} id="register" className={signUpModal ? "li-btn2" : null}>Créer un compte Admin</li>
+            </ShowOnLogout>
+            <ShowOnLogin>
             <li>
-              <button className='li-btn'>
+            <div className="li-cont">
+              <button className='li-btn dash'>
                 <NavLink to="/dashboard" className='no-deco'>Aller sur le Dashboard</NavLink>
               </button>
+              </div>
             </li>
+            </ShowOnLogin>
           </ul>
         </div>
-        {signInModal && <SignIn />}
-        {signUpModal && <SignUp />}
+        <ShowOnLogout>{signInModal && <SignIn />}</ShowOnLogout>
+        <ShowOnLogout>{signUpModal && <SignUp />}</ShowOnLogout>
       </div>
     </div>
   )

@@ -53,3 +53,43 @@ export const logoutUser = async () => {
         toast.error(message)
     }
 }
+
+//forgot password
+export const forgotPassword = async (userData) => {
+
+    try {
+        const response = await axios.post(`${API_URL}/api/users/forgotpassword`, userData);
+        toast.success(response.data.message);
+        
+    }
+    catch (error) {
+        const message = (error.response && error.response.data && error.response.data.messsage) || error.message || error.toString();
+        toast.error(message)
+    }
+}
+
+//reset password
+export const resetPassword = async (userData, resetToken) => {
+
+    try {
+        const response = await axios.put(`${API_URL}/api/users/resetpassword/${resetToken}`, userData);
+        return response.data;
+    }
+    catch (error) {
+        const message = (error.response && error.response.data && error.response.data.messsage) || error.message || error.toString();
+        toast.error(message)
+    }
+}
+
+//get login status
+export const getLoginStatus = async () => {
+
+    try {
+        const response = await axios.get(`${API_URL}/api/users/connected`);
+        return response.data;
+    }
+    catch (error) {
+        const message = (error.response && error.response.data && error.response.data.messsage) || error.message || error.toString();
+        toast.error(message)
+    }
+}

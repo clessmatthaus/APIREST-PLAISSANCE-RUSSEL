@@ -40,7 +40,7 @@ const SignIn = () => {
     if(!validateEmail(email)) {
       return toast.error("Veuillez renseigner un email valide")
     }
-
+    
     const userData = {email, password}
     setIsLoading(true)
 
@@ -53,6 +53,7 @@ const SignIn = () => {
       setIsLoading(false)
     }
     catch (error) {
+      
       setIsLoading(false)
     }
   }

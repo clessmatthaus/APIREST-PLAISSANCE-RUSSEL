@@ -131,6 +131,11 @@ p{
    transition: 0.3s;
    box-shadow: 2px 2px 1px rgba(51, 51, 51, 0.418);
 }
+
+.dash{
+   margin-left:-380px;
+   margin-top:200px;
+}
 .li-btn1{
    padding:10px;
    background-color:gray;

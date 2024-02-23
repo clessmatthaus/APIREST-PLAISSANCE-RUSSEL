@@ -18,6 +18,7 @@ function Header() {
   const name = useSelector(setIsName)
 
   const logout = async () => {
+   
       await logoutUser();
       await dispatch(SET_LOGIN(false))
       navigate("/")
@@ -27,7 +28,7 @@ function Header() {
     <div>
        <div className="containers">
         <div className='header-container'>
-         <img src={logo} className="logo" alt='' /> 
+        <Link to="/"> <img src={logo} className="logo" alt='' /></Link> 
         </div>
         <div className='username'>
         <img src={login}  alt='online' width="70px"/> 
