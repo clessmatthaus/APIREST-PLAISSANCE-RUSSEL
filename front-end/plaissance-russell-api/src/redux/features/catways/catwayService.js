@@ -9,9 +9,15 @@ export const createCatway = async (formData) => {
     const response = await axios.post(APIBACK_URL, formData)
     return response.data
 }
+//get all catways
+export const getCatways = async (formData) => {
+    const response = await axios.get(APIBACK_URL)
+    return response.data
+}
 
 const catwayService = {
-    createCatway
+    createCatway,
+    getCatways
 }
 
 export default catwayService;

@@ -1,6 +1,6 @@
 
 import React from 'react'
-import CatwayForm from '../../components/CatwayForm/CatwayForm'
+import CatwayForm from '../../components/Catway/CatwayForm/CatwayForm'
 import { useState } from "react"
 import { useSelector } from "react-redux"
 import {createCatway, selectIsLoading,} from "../../redux/features/catways/catwaySlice";

@@ -23,6 +23,17 @@ export const createCatway = createAsyncThunk( "catways/create", async (formData,
     }
 })
 
+//get all catway
+export const getCatways = createAsyncThunk( "catways/getAll", async (_, thunkAPI) => {
+    try {
+        return  await catwayService.getCatways()
+    } catch (error) {
+        const message = (error.response && error.response.data && error.response.data.messsage) || error.message || error.toString();
+        console.log(message)
+        return thunkAPI.rejectWithValue(message)
+    }
+})
+
 const catwaySlice = createSlice({
   name: "catway",
   initialState,
@@ -33,6 +44,7 @@ const catwaySlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
+    // create catway
         .addCase(createCatway.pending, (state) => {
             state.isLoading = true
     })
@@ -44,6 +56,24 @@ const catwaySlice = createSlice({
             toast.success("Catway créer avec succès")
     })
         .addCase(createCatway.rejected, (state, action) => {
+            state.isLoading = false
+            state.isError = true
+            state.message = action.payload
+            toast.error(action.payload)
+    })
+     // get all catways
+        .addCase(getCatways.pending, (state) => {
+            state.isLoading = true
+    })
+        .addCase(getCatways.fulfilled, (state, action) => {
+            state.isLoading = false
+            state.isSuccess = true
+            state.isError =false
+            console.log(action.payload)
+            state.catways = action.payload
+            
+    })
+        .addCase(getCatways.rejected, (state, action) => {
             state.isLoading = false
             state.isError = true
             state.message = action.payload

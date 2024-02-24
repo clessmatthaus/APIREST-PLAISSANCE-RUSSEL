@@ -3,7 +3,7 @@ import React from 'react';
 import {Route, Routes} from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
 import AddCatway from './pages/Catway/AddCatway';
-import CatwayForm from './components/CatwayForm/CatwayForm';
+import CatwayForm from './components/Catway/CatwayForm/CatwayForm';
 import Forgot from './components/Log/Forgot';
 import Reset from './components/Log/Reset';
 import index from './components/Log/index';

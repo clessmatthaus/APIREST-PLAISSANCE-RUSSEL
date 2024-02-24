@@ -3,7 +3,6 @@ import catwayForm from "./CatwayForm.css"
 import { useState } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import Card from "../Card/Card"
 import imgpr from "./long.jpg"
 
 const CatwayForm = ({catway, catwayNumber, catwayImage, imagePreview, type ,catwayState ,setCatwayState,  handleInputChange,

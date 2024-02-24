@@ -36,14 +36,7 @@ h5{
    margin-bottom:50px;
    font-size:17px;
 }
-/*.btn-success{
-   background-color:#034862;
-   border:1px solid #034862;
-   color:white;
-   border-radius:5px;
-   list-style: none;
-   text-decoration:none;
-}*/
+
 .no-deco{
    list-style: none;
    text-decoration:none;
