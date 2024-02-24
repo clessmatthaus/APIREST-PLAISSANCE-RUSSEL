@@ -28,8 +28,8 @@ const AddCatway = () => {
     const {catwayNumber, type} = catway;
 
     const handleInputChange = (e) => {
-        const { catwayNumber, value } = e.target;
-        setCatway({...catway, [catwayNumber]: value });
+        const { name, value } = e.target;
+        setCatway({...catway, [name]: value });
       };
 
     const handleImageChange = (e) => {
@@ -55,8 +55,9 @@ const AddCatway = () => {
     <div>
       {isLoading && <Loader />} 
         <CatwayForm  
+        catway={catway}
         catwayImage={catwayImage}
-        imagePreview={imagePreview} 
+        imagePreview={imagePreview}   
         catwayNumber={catwayNumber} 
         type={type}
         catwayState={catwayState}

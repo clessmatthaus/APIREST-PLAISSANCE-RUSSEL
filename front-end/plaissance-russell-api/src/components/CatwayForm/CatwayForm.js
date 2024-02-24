@@ -6,7 +6,7 @@ import 'react-quill/dist/quill.snow.css';
 import Card from "../Card/Card"
 import imgpr from "./long.jpg"
 
-const CatwayForm = ({catwayNumber, catwayImage, imagePreview, type ,catwayState ,setCatwayState,  handleInputChange,
+const CatwayForm = ({catway, catwayNumber, catwayImage, imagePreview, type ,catwayState ,setCatwayState,  handleInputChange,
   handleImageChange, saveCatway}) => {
   return (
     <div className="cat-form">
@@ -14,22 +14,24 @@ const CatwayForm = ({catwayNumber, catwayImage, imagePreview, type ,catwayState 
      <div className="cards">    
         <form onSubmit={saveCatway}>
           <div className="group">
-             <label>Image Catway</label>
+            <h3>Enregistrer un catway</h3>
+             
              <input type="file" name="image" onChange={(e) => handleImageChange(e)}/>
              {imagePreview != null ? (
               <div className="image-preview">
-                <img src={imagePreview} alt="image catway" width="500px"/>
+                <img src={imagePreview} alt="catway" width="300px"/>
               </div>
              ) : (<p>Aucune image définie pour ce modèle.</p>)}
           </div>
           <label>Numéro du Catway : </label>
-          <input type="text" placeholder="numéro du catway" name="catwayNumber" value={catwayNumber} onChange={(e) => handleInputChange} className="inputse"/>
+          <input type="number" placeholder="numéro du catway" name="catwayNumber" value={catway?.catwayNumber} onChange={handleInputChange} className="inputse"/>
           <label>Type du Catway : </label>
-          <input type="number" placeholder="le type du Catway" name="type" value={type} onChange={(e) => handleInputChange} className="inputse"/>
-          <div>
+          <input type="text" placeholder="le type du Catway" name="type" value={catway?.type} onChange={handleInputChange} className="inputse"/>
+          <div className="textzone">
           <label>Déscription du Catway :</label>
-          <ReactQuill theme="snow" value={catwayState} onChange={setCatwayState}className="textzone"/>
-          </div>
+          <ReactQuill theme="snow" value={catwayState} onChange={setCatwayState} modules={CatwayForm.modules} formats={CatwayForm.formats} className="textzone1"/>
+          </div>   
+          <div className='save-btn'><button type='submit' className='btn btn-secondary'>Enregistrer</button></div>
         </form>
      </div>
      
