@@ -1,0 +1,44 @@
+.infosbox {
+    width: 100%;
+    height: 8rem;
+    max-width: 100rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction:row;
+    justify-content: space-between;
+    align-items: center;
+    vertical-align: middle;
+    flex-wrap: wrap;
+    color: #fff;
+    transform: translateY(0);
+    transition: all 0.3s;
+    border-radius:6px;
+}
+.infosbox:hover {
+      cursor: pointer;
+      transform: translateY(-3px);
+      height: 9.2rem;
+}
+  
+.info-icon {
+      padding: 10px;
+      width:100%;
+      border-radius:5px 5px 0px 0px ;
+      display:flex;
+      background-color:white;
+      justify-content: center;
+      align-items: center;
+     
+    }
+
+.stock{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    padding:15px 0;
+   
+}

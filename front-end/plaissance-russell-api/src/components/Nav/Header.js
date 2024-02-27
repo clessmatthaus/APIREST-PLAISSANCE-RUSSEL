@@ -10,7 +10,6 @@ import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { SET_LOGIN, setIsName } from '../../redux/features/auth/authSlice';
 
-
 function Header() {
 
   const dispatch = useDispatch()
@@ -31,8 +30,8 @@ function Header() {
         <Link to="/"> <img src={logo} className="logo" alt='' /></Link> 
         </div>
         <div className='username'>
-        <img src={login}  alt='online' width="50px"/> 
-          <p>{name}</p>
+        <img src={login}  alt='online' width="55px"/> 
+          
         </div>
         <div  className="user-profil">
         <AiOutlineLogout size={30} onClick={logout}/>

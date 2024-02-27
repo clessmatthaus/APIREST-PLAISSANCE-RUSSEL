@@ -3,11 +3,10 @@
     width:100%;
     border:1px solid white;
     background-color:whitesmoke;
-    padding:130px 70px;
-    font-weight:bold;
-    margin-left:400px;
+    padding:20px 70px;
+    margin-left:0px;
     border:10px solid white;
-    border-radius:5px;
+    border-radius:0 0px 5px 5px;
 }
 
 .table-content{
@@ -20,6 +19,7 @@
     color:#8B1602;
     margin:20px 0;
 }
+
 .search{
     width: 100%;
     max-width: 300px;
@@ -36,6 +36,7 @@ table{
     border-bottom: 2px solid #D12305;
     padding:20px 0;
     color: #034862;
+    font-weight:bold;
     background-color:whitesmoke;
 }
            
@@ -48,9 +49,10 @@ th, td{
 }     
 .icons{
     display: flex;
-    justify-content: space-between;
+    justify-content:center;
     align-items: center;        
-    margin-right: 10px;
+    margin-left: 35px;
+    gap:55px;
     cursor: pointer;
     align-self: center;
 }
@@ -70,6 +72,42 @@ tr{
 }
 .action{
     text-align:center;
+    justify-content:space-between;
+    padding-left:100px;
 }
-
-  
+.voir{color:blue;
+    margin-left:-30px}
+.edit{color:green;
+margin-left:35px;}
+.delet{color:red;
+    margin-left:15px}
+.pagination {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
+    font-size: 0.8rem;
+}
+      
+.pagination .page-num {
+    padding: 4px 8px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    color: gray;
+    border: 1px solid #034862;
+    margin: 2px;
+    text-decoration:none;
+}
+      
+.pagination .page-num:hover {
+    color: white;
+    background-color: #034862;
+}
+.activePage {
+    color:white;
+    background-color: #034862;
+    border: 1px solid  #034862;
+    height: 100%;
+}  

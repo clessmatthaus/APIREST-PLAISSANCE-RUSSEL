@@ -6,6 +6,7 @@ import {useEffect } from "react"
 import CatwayList from '../components/Catway/CatwayList/CatwayList';
 import { selectIsLoggedIn } from "../redux/features/auth/authSlice";
 import {getCatways} from "../redux/features/catways/catwaySlice";
+import CatwayBalance from "../components/Catway/CatwayBalance/CatwayBalance"
 
 
 const Dashboard = () => {
@@ -28,7 +29,8 @@ const Dashboard = () => {
 
   return (
     <div className='dashboards'>
-         <CatwayList  catways={catways} isLoading={isLoading}/>
+      <CatwayBalance catways={catways}/>
+      <CatwayList  catways={catways} isLoading={isLoading}/>
     </div>
   )
 }

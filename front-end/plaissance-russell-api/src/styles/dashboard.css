@@ -5,8 +5,8 @@
 .dashboards{
     width: 100%;
     display:flex;
-    color:white;   
-    margin-left:400px;
-    margin-top:-670px;
+    flex-direction:column;
+    margin-left:800px;
+    margin-top:-870px;
 }
 
