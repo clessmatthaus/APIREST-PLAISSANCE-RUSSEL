@@ -9,7 +9,7 @@ catways: [],
 isError: false,
 isSuccess: false,
 isLoading: false,
-message: "",
+type: []
 };
 
 //create new catway
@@ -39,8 +39,15 @@ const catwaySlice = createSlice({
   initialState,
   reducers: {
     CALC_MANAGEMENT_DATA(state, action){
-        console.log("gestion des données")
-    }
+        const catways = action.payload
+        const array = []
+        catways.map((item) =>{
+            const {type} = item;
+            return array.push(type)
+        });
+        const theType = [...new Set(array)]
+        state.type = theType
+    } 
   },
   extraReducers: (builder) => {
     builder
@@ -85,5 +92,6 @@ const catwaySlice = createSlice({
 export const { CALC_MANAGEMENT_DATA } = catwaySlice.actions;
 
 export const selectIsLoading = (state) => state.catway.isLoading;
+export const selectType = (state) => state.catway.type;
 
 export default catwaySlice.reducer

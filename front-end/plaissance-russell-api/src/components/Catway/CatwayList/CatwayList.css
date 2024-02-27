@@ -1,9 +1,8 @@
 .catwaylist{
     color: #034862;
     width:100%;
-    border:1px solid white;
     background-color:whitesmoke;
-    padding:20px 70px;
+    padding:0px 70px;
     margin-left:0px;
     border:10px solid white;
     border-radius:0 0px 5px 5px;
@@ -37,32 +36,28 @@ table{
     padding:20px 0;
     color: #034862;
     font-weight:bold;
+    text-align:center;
     background-color:whitesmoke;
 }
            
 th, td{
     vertical-align: center;
-    text-align: left;
+    text-align: center;
     padding: 8px;
     background-color: whitesmoke;
     font-size:17px;
 }     
 .icons{
     display: flex;
-    justify-content:center;
+    justify-content:right;
     align-items: center;        
-    margin-left: 35px;
+    padding-right: 38px;
     gap:55px;
     cursor: pointer;
     align-self: center;
 }
-    
-tr{
-    border-bottom: 1px solid blue;
- }
-      
+  
 .t-body{
- 
     border-bottom: 1px solid lightblue;
     border-top: 1px solid lightblue;
 }
@@ -72,11 +67,12 @@ tr{
 }
 .action{
     text-align:center;
-    justify-content:space-between;
+    justify-content:right;
     padding-left:100px;
+    text-align:right;
 }
 .voir{color:blue;
-    margin-left:-30px}
+    margin-left:30px}
 .edit{color:green;
 margin-left:35px;}
 .delet{color:red;
