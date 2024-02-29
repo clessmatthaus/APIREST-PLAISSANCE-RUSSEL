@@ -11,6 +11,9 @@ import { FILTER_CATWAYS } from "../../../redux/features/catways/FilterSlice"
 import { selectFilteredCatways } from "../../../redux/features/catways/FilterSlice"
 import ReactDOM from 'react-dom';
 import ReactPaginate from 'react-paginate';
+import { confirmAlert } from 'react-confirm-alert'; 
+import 'react-confirm-alert/src/react-confirm-alert.css';
+import { deleteCatway, getCatways } from '../../../redux/features/catways/catwaySlice';
 
 
 const CatwayList = ({catways, isLoading}) => {
@@ -20,6 +23,28 @@ const CatwayList = ({catways, isLoading}) => {
     const filteredCatways = useSelector(selectFilteredCatways)
 
     const dispatch = useDispatch()
+
+     //delete catway 
+    const delCatway = async (id) => {
+      await dispatch(deleteCatway(id))
+      await dispatch(getCatways())
+    }
+    //confirm delete catway 
+    const confirmDeleteCatway = (id) => {
+      confirmAlert({
+        title: 'Confirmer',
+        message: 'Êtes-vous sûr de supprimer cet element ?',
+        buttons: [
+          {
+            label: 'Supprimer',
+            onClick: () => delCatway(id) 
+          },
+          {
+            label: 'Annuler',
+          }
+        ]
+      });
+    }
 
       //   Begin Pagination
     const [currentItems, setCurrentItems] = useState([]);
@@ -83,7 +108,7 @@ const CatwayList = ({catways, isLoading}) => {
                                                 <FaRegEdit size={22} color={"green"}/>
                                             </span>
                                             <span>
-                                                <RiDeleteBin5Fill size={22} color={"red"}/>
+                                                <RiDeleteBin5Fill size={22} color={"red"} onClick={() => confirmDeleteCatway(_id)}/>
                                             </span>
                                         </td>
                                     </td>

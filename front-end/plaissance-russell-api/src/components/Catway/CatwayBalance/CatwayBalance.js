@@ -23,7 +23,7 @@ const CatwayBalance = ({catways}) => {
     <div className='infobalance'>
       <h2>Géstion de catways</h2>
     <div className='infobalance-div'>
-      <InfoBox icon={TotalStockIcon} title={"Catways disponible"} count={catways.length} bgColor="card1"/>
+      <InfoBox icon={TotalStockIcon} title={"Nombre de Catways"} count={catways.length} bgColor="card1"/>
       <InfoBox icon={TypesIcon} title={"Types de catway"} count={type.length} bgColor="card3"/>
     </div>
     </div>

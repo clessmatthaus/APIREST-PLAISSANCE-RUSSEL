@@ -34,6 +34,17 @@ export const getCatways = createAsyncThunk( "catways/getAll", async (_, thunkAPI
     }
 })
 
+//delete a catway
+export const deleteCatway = createAsyncThunk( "catways/delete", async (id, thunkAPI) => {
+    try {
+        return  await catwayService.deleteCatway(id)
+    } catch (error) {
+        const message = (error.response && error.response.data && error.response.data.messsage) || error.message || error.toString();
+        console.log(message)
+        return thunkAPI.rejectWithValue(message)
+    }
+})
+
 const catwaySlice = createSlice({
   name: "catway",
   initialState,
@@ -68,6 +79,7 @@ const catwaySlice = createSlice({
             state.message = action.payload
             toast.error(action.payload)
     })
+
      // get all catways
         .addCase(getCatways.pending, (state) => {
             state.isLoading = true
@@ -86,11 +98,27 @@ const catwaySlice = createSlice({
             state.message = action.payload
             toast.error(action.payload)
     })
+
+    // delete catway
+       .addCase(deleteCatway.pending, (state) => {
+        state.isLoading = true
+    })
+       .addCase(deleteCatway.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.isSuccess = true
+        state.isError = false
+        toast.success("Catway supprimé avec succès")  
+    })
+       .addCase(deleteCatway.rejected, (state, action) => {
+        state.isLoading = false
+        state.isError = true
+        state.message = action.payload
+        toast.error(action.payload)
+    })
   }
 });
 
 export const { CALC_MANAGEMENT_DATA } = catwaySlice.actions;
-
 export const selectIsLoading = (state) => state.catway.isLoading;
 export const selectType = (state) => state.catway.type;
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from './ikons.png'
+import logo from './ikons1.png'
 import login from './greens.gif'
 //import profilIcon from './logout.svg'
 import header from './Header.css'

@@ -18,7 +18,7 @@
     margin-top:2px;
     background-color: rgb(241, 239, 239);;
     border:10px solid white;
-    z-index:5105;
+    z-index:0;
     padding:5px  ;
     border-radius:3px;
 }
