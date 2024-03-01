@@ -1,9 +1,7 @@
 import React from 'react'
-import catwayForm from "./CatwayForm.css"
-import { useState } from 'react';
+import "./CatwayForm.css"
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import imgpr from "./long.jpg"
 
 const CatwayForm = ({catway, catwayNumber, catwayImage, imagePreview, type ,catwayState ,setCatwayState,  handleInputChange,
   handleImageChange, saveCatway}) => {
@@ -13,12 +11,10 @@ const CatwayForm = ({catway, catwayNumber, catwayImage, imagePreview, type ,catw
      <div className="cards">    
         <form onSubmit={saveCatway}>
           <div className="group">
-            <h3>Enregistrer un catway</h3>
-             
              <input type="file" name="image" onChange={(e) => handleImageChange(e)}/>
              {imagePreview != null ? (
               <div className="image-preview">
-                <img src={imagePreview} alt="catway" width="300px"/>
+                <img src={imagePreview} alt="catway" width="400px" height="270px"/>
               </div>
              ) : (<p>Aucune image définie pour ce modèle.</p>)}
           </div>

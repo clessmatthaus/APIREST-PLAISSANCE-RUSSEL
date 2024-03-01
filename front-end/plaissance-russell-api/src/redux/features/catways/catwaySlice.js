@@ -9,6 +9,7 @@ catways: [],
 isError: false,
 isSuccess: false,
 isLoading: false,
+message: "",
 type: []
 };
 
@@ -38,6 +39,28 @@ export const getCatways = createAsyncThunk( "catways/getAll", async (_, thunkAPI
 export const deleteCatway = createAsyncThunk( "catways/delete", async (id, thunkAPI) => {
     try {
         return  await catwayService.deleteCatway(id)
+    } catch (error) {
+        const message = (error.response && error.response.data && error.response.data.messsage) || error.message || error.toString();
+        console.log(message)
+        return thunkAPI.rejectWithValue(message)
+    }
+})
+
+//get a catway
+export const getCatway = createAsyncThunk( "catways/getCatway", async (id, thunkAPI) => {
+    try {
+        return  await catwayService.getCatway(id)
+    } catch (error) {
+        const message = (error.response && error.response.data && error.response.data.messsage) || error.message || error.toString();
+        console.log(message)
+        return thunkAPI.rejectWithValue(message)
+    }
+})
+
+//update catway
+export const updateCatway = createAsyncThunk( "catways/updateCatway", async ({id, formData}, thunkAPI) => {
+    try {
+        return  await catwayService.updateCatway(id, formData)
     } catch (error) {
         const message = (error.response && error.response.data && error.response.data.messsage) || error.message || error.toString();
         console.log(message)
@@ -115,11 +138,46 @@ const catwaySlice = createSlice({
         state.message = action.payload
         toast.error(action.payload)
     })
+
+     // get catway
+     .addCase(getCatway.pending, (state) => {
+        state.isLoading = true
+    })
+       .addCase(getCatway.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.isSuccess = true
+        state.isError = false
+        state.catway = action.payload 
+    })
+       .addCase(getCatway.rejected, (state, action) => {
+        state.isLoading = false
+        state.isError = true
+        state.message = action.payload
+        toast.error(action.payload)
+    })
+
+    // update catway
+    .addCase(updateCatway.pending, (state) => {
+        state.isLoading = true
+    })
+       .addCase(updateCatway.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.isSuccess = true
+        state.isError = false
+        toast.success("Catway modifié avec succès")
+    })
+       .addCase(updateCatway.rejected, (state, action) => {
+        state.isLoading = false
+        state.isError = true
+        state.message = action.payload
+        toast.error(action.payload)
+    })
   }
 });
 
 export const { CALC_MANAGEMENT_DATA } = catwaySlice.actions;
 export const selectIsLoading = (state) => state.catway.isLoading;
+export const selectCatway = (state) => state.catway.catway;
 export const selectType = (state) => state.catway.type;
 
 export default catwaySlice.reducer

@@ -1,5 +1,5 @@
 import React from 'react'
-import catwayList from "./CatwayList.css"
+import "./CatwayList.css"
 import { SpinnerImg } from "../../Loader/Loader";
 import { FaRegEdit, FaEye } from "react-icons/fa";
 import { RiDeleteBin5Fill } from "react-icons/ri";
@@ -9,11 +9,11 @@ import {useEffect} from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { FILTER_CATWAYS } from "../../../redux/features/catways/FilterSlice"
 import { selectFilteredCatways } from "../../../redux/features/catways/FilterSlice"
-import ReactDOM from 'react-dom';
 import ReactPaginate from 'react-paginate';
 import { confirmAlert } from 'react-confirm-alert'; 
 import 'react-confirm-alert/src/react-confirm-alert.css';
-import { deleteCatway, getCatways } from '../../../redux/features/catways/catwaySlice';
+import { deleteCatway, getCatways} from '../../../redux/features/catways/catwaySlice';
+import { Link } from "react-router-dom"
 
 
 const CatwayList = ({catways, isLoading}) => {
@@ -102,10 +102,14 @@ const CatwayList = ({catways, isLoading}) => {
                                     <td>
                                         <td className="icons">
                                             <span>
-                                            <FaEye size={22} color={"blue"}/>
+                                              <Link to={`/catway-detail/${_id}`}>
+                                                <FaEye size={22} color={"blue"} />
+                                              </Link>
                                             </span>
                                             <span>
+                                            <Link to={`/edit-catway/${_id}`}>
                                                 <FaRegEdit size={22} color={"green"}/>
+                                              </Link>
                                             </span>
                                             <span>
                                                 <RiDeleteBin5Fill size={22} color={"red"} onClick={() => confirmDeleteCatway(_id)}/>

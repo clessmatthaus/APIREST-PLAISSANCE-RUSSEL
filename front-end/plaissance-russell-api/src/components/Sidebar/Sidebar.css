@@ -11,16 +11,18 @@
     margin-top:50px;
     color: #034862;
     justify-content:center;
+    margin-left:10px;
 }
 .sidebar-content{
     width:95%;
     height:100vh;
     margin-top:2px;
-    background-color: rgb(241, 239, 239);;
+    background-color: rgb(241, 239, 239);
     border:10px solid white;
     z-index:0;
     padding:5px  ;
     border-radius:3px;
+  
 }
 .top-section{
     border-bottom:5px solid white;
@@ -36,10 +38,6 @@
 
 /**************************************************/
 
-  .layout {
-    display: flex;
-   
-  }
   main {
     width: 100%;
     padding: 20px;

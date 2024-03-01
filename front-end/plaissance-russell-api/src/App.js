@@ -3,6 +3,8 @@ import React from 'react';
 import {Route, Routes} from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
 import AddCatway from './pages/Catway/AddCatway';
+import EditCatway from './pages/EditCatway/EditCatway';
+import CatwayDetail from './components/Catway/CatwayDetail/CatwayDetail';
 import CatwayForm from './components/Catway/CatwayForm/CatwayForm';
 import Forgot from './components/Log/Forgot';
 import Reset from './components/Log/Reset';
@@ -48,22 +50,33 @@ function App() {
         <Route
           path="/dashboard"
           element={  
-           
                <Layout><Sidebar>
                 <Dashboard />
-               </Sidebar> </Layout>
-             
+               </Sidebar></Layout> 
           }
         />
         <Route
           path="/add-catway"
           element={
-                
-                  <Layout><Sidebar>
+                <Layout><Sidebar>
                 <AddCatway />
-                 </Sidebar> </Layout>
-              
-             
+                </Sidebar> </Layout>
+          }
+        />
+         <Route
+          path="/catway-detail/:id"
+          element={ 
+                <Layout><Sidebar>
+                  <CatwayDetail />
+                </Sidebar> </Layout>
+          }
+        />
+         <Route
+          path="/edit-catway/:id"
+          element={ 
+                <Layout><Sidebar>
+                  <EditCatway />
+                </Sidebar> </Layout>
           }
         />
 
