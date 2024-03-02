@@ -1,0 +1,146 @@
+@font-face{
+    font-family: Graphik;
+    src:url(../../../public/Graphik-Black-Trial.otf);
+  }
+.profile-container{
+    width: 100%;
+    padding-bottom:20px;
+    margin-left:550px;
+    margin-top:-690px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    border:5px solid white;
+    background-color:whitesmoke;
+    box-shadow:2px 2px 2px 2px whitesmoke;
+    border-radius:5px;
+    gap:10px;
+}
+.profile{
+    width: 100%;
+    padding:20px;
+    height:40vh;
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center; 
+    border-radius:4px;
+    gap:20px;
+}
+.profile-img{
+    width:100%;
+    height:50%;  
+    border:1px solid white;
+    border-radius:10px;
+    z-index:7;
+}
+.profile-infos{
+    width:100%;
+    height:100%;
+    justify-content:center;
+    align-items:start;
+    text-align:left;
+    display:flex;
+    padding:0px;
+    gap:10px;
+    flex-direction:column;
+}
+.profile-infos span{
+    font-size:16px;
+    font-weight:bold;
+    color:#034862;   
+}
+.profile-infos h5{
+    color:black;
+}
+.update-btn{
+    width:100%;
+    display:flex;
+    justify-content:center;
+}
+/***************************Edit profile*******************************/
+.editprofile{
+    width: 50%;
+    padding-bottom:20px;
+    margin-left:550px;
+    margin-top:-690px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    border:5px solid white;
+    background-color:whitesmoke;
+    
+    border-radius:5px;
+    gap:10px;
+}
+.edits-profile{
+    width: 100%;
+    padding:10px;
+    height:80vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center; 
+    border-radius:4px;
+    gap:10px;
+}
+.edit-profile-img{
+    width:100%;
+    height:50%;  
+    display:flex;
+    justify-content:center;
+    align-items:center; 
+    padding:5px;
+    border-radius:10px;
+}
+.edit-profile-infos{
+    width:100%;
+    height:100%;
+    justify-content:start;
+    align-items:start;
+    text-align:left;
+    display:flex;
+    padding:0px;
+    gap:10px;
+    flex-direction:column;
+}
+.edit-profile-infos h5{
+    color:#034862;
+    text-align:left;
+}
+.color-lab{
+    color:#034862;
+    font-size:14px;
+}
+.color-input{
+    color:gray;
+    font-size: 14px;
+    padding: 7px;
+    padding-right:75px;
+}
+.send-btn{
+    margin-top:10px;
+}
+.edit-profile-password{
+    width:100%;
+    height:60%;  
+    display:flex;
+    gap:5;
+    flex-direction:column;
+    padding:10px;
+    border:2px solid lightblue;
+    border-radius:10px;
+    z-index:7;
+    margin-top:20px;
+}
+.input-pad{
+    padding:5px;
+    width:70%;
+    margin-bottom:5px;
+}
+.edit-profile-password h3{
+    color:#034862;
+    text-align:left;
+}

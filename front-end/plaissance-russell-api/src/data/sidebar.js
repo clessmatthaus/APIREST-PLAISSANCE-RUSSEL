@@ -4,7 +4,7 @@ import { MdAddChart, MdLibraryAdd, MdManageAccounts, MdContactMail  } from "reac
 const menu = [
   
   {
-    title: "Mon compte",
+    title: "Compte",
     icon: <MdManageAccounts size={35}/>,
     childrens: [
       {
@@ -14,7 +14,7 @@ const menu = [
       {
         title: "Editer Profil",
         path: "/edit-profile",
-      },
+      }
     ],
   },
   {

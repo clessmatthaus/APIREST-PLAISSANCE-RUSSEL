@@ -8,13 +8,13 @@ import { Link } from 'react-router-dom';
 import { logoutUser } from '../../services/authServices';
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
-import { SET_LOGIN, setIsName } from '../../redux/features/auth/authSlice';
+import { SET_LOGIN, selectName } from '../../redux/features/auth/authSlice';
 
 function Header() {
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const name = useSelector(setIsName)
+  const name = useSelector(selectName)
 
   const logout = async () => {
    

@@ -7,9 +7,9 @@ name: name ? name : "",
 user: {
   name: "",
   email: "",
-  photo: ""
+  photo: "",
   },
-}
+};
 
 const authSlice = createSlice({
   name: "auth",
@@ -26,7 +26,7 @@ const authSlice = createSlice({
       const profile = action.payload;
       state.user.name = profile.name;
       state.user.email = profile.email;
-      state.user.photo = profile.photo
+      state.user.photo = profile.photo; 
     }
   }
 });
@@ -34,7 +34,8 @@ const authSlice = createSlice({
 export const {SET_LOGIN, SET_NAME, SET_USER} = authSlice.actions;
 
 export const selectIsLoggedIn = (state) => state.auth.isLoggedIn;
-export const setIsName = (state) => state.auth.name;
-export const setIsUser = (state) => state.auth.user;
+
+export const selectName = (state) => state.auth.name;
+export const selectUser = (state) => state.auth.user;
 
 export default authSlice.reducer
