@@ -7,6 +7,7 @@ import { getUser} from '../../services/authServices';
 import { SET_USER, SET_NAME } from '../../redux/features/auth/authSlice';
 import { SpinnerImg } from "../../components/Loader/Loader";
 import { Link } from "react-router-dom"
+import Card from "../../components/Card/Card";
 
 const Profile = () => {
     useRedirectLogOut("/")
@@ -37,18 +38,20 @@ const Profile = () => {
             <p>Une erreur est survenue, veuillez actualiser la page...</p>
         ): (
           <>
-        <div className="profile">
-            <div className="profile-img">
-                <img src={profile?.photo} alt="photodeprofil" width="200px" height="200px"/>
+        <Card cardClass={"Card --flex-dir-column"}>
+            <div className="profile">
+                <div className="profile-img">
+                <img src={profile?.photo} alt="profil" width="250px" height="250px"/>
             </div>
             <div className='profile-infos'>
-                <h5>Nom : <span>{profile?.name}</span></h5>
-                <h5>E-mail : <span>{profile?.email}</span></h5>
-            </div>
-        </div>
-        <div className="update-btn">
+                <h5><label>Nom : </label> <span>{profile?.name}</span></h5>
+                <h5><label>E-mail : </label> <span>{profile?.email}</span></h5>
+            </div>   
+            </div>   
+            <div className="update-btn">
             <Link to="/edit-profile"><button className="btn btn-danger">Modifier le profil</button></Link>
-        </div>
+            </div>
+        </Card>
         </>
         )}
         </div>

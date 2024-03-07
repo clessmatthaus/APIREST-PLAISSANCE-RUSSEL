@@ -12,6 +12,7 @@ import Forgot from './components/Log/Forgot';
 import Reset from './components/Log/Reset';
 import index from './components/Log/index';
 import Reservations from './pages/Reservations';
+import AddReservation from './pages/Reservation/AddReservation';
 import Auth from './pages/Auth';
 import  axios  from 'axios';
 import {useEffect} from 'react'
@@ -47,7 +48,6 @@ function App() {
           <Route path='/login' element={<index/>} />
           <Route path='/forgot' element={<Forgot/>} />
           <Route path='/resetpassword/:resetToken' element={<Reset/>} />
-          <Route path='/reservations' element={<Reservations/>} />
           <Route path='/catwayform' element={<AddCatway/>} />
         <Route
           path="/dashboard"
@@ -97,7 +97,22 @@ function App() {
                 </Sidebar> </Layout>
           }
         />
-
+         <Route
+          path="/reservation"
+          element={  
+               <Layout><Sidebar>
+                <Reservations />
+               </Sidebar></Layout> 
+          }
+        />
+         <Route
+          path="/add-reservation"
+          element={
+                <Layout><Sidebar>
+                <AddReservation />
+                </Sidebar> </Layout>
+          }
+        />
         </Routes>
     </div>
   )

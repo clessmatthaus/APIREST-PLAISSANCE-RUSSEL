@@ -3,18 +3,25 @@ import "./CatwayForm.css"
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
-const CatwayForm = ({catway, catwayNumber, catwayImage, imagePreview, type ,catwayState ,setCatwayState,  handleInputChange,
-  handleImageChange, saveCatway}) => {
+const CatwayForm = ({catway, 
+  catwayNumber, 
+  catwayImage, 
+  imagePreview, 
+  type,
+  catwayState,
+  setCatwayState,  
+  handleInputChange, 
+  handleImageChange, 
+  saveCatway }) => {
   return (
     <div className="cat-form">
-    
-     <div className="cards">    
+     <div className="cards">  
         <form onSubmit={saveCatway}>
           <div className="group">
              <input type="file" name="image" onChange={(e) => handleImageChange(e)}/>
              {imagePreview != null ? (
               <div className="image-preview">
-                <img src={imagePreview} alt="catway" width="400px" height="270px"/>
+                <img src={imagePreview} alt="catway"  width="400px" height="270px"/>
               </div>
              ) : (<p>Aucune image définie pour ce modèle.</p>)}
           </div>
@@ -29,7 +36,6 @@ const CatwayForm = ({catway, catwayNumber, catwayImage, imagePreview, type ,catw
           <div className='save-btn'><button type='submit' className='btn btn-secondary'>Enregistrer</button></div>
         </form>
      </div>
-     
     </div>
   )
 }

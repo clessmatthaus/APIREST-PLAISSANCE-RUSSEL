@@ -106,3 +106,31 @@ export const getUser = async () => {
         toast.error(message)
     }
 }
+
+//update user profile
+export const updateUser = async (formData) => {
+    try {
+        const response = await axios.patch(
+            `${API_URL}/api/users/updateuser`, 
+            formData);
+        return response.data;
+    }
+    catch (error) {
+        const message = (error.response && error.response.data && error.response.data.messsage) || error.message || error.toString();
+        toast.error(message)
+    }
+}
+
+//change user password
+export const changePassword = async (formData) => {
+    try {
+        const response = await axios.patch(
+            `${API_URL}/api/users/changepassword`, 
+            formData);
+        return response.data;
+    }
+    catch (error) {
+        const message = (error.response && error.response.data && error.response.data.messsage) || error.message || error.toString();
+        toast.error(message)
+    }
+}

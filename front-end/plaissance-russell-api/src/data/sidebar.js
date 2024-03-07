@@ -18,7 +18,7 @@ const menu = [
     ],
   },
   {
-    title: "Dashboard",
+    title: "Liste de Catways",
     icon: <FaTh  size={30}/>,
     path: "/dashboard",
   },
@@ -28,14 +28,14 @@ const menu = [
     path: "/add-catway",
   },
   {
-    title: "Créer une Réservation",
-    icon: <MdAddChart size={30}/>,
-    path: "/add-reservation",
+    title: "Liste de reservations",
+    icon: <FaTh  size={30} color={"green"}/>,
+    path: "/reservation",
   },
   {
-    title: "Signaler un Bugg",
-    icon: <MdContactMail size={30}/>,
-    path: "/contact-us",
+    title: "Créer une Réservation",
+    icon: <MdAddChart size={30} color={"green"}/>,
+    path: "/add-reservation",
   },
 ];
 

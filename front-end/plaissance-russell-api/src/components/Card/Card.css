@@ -1,6 +1,7 @@
 .card {
     border: 1px solid transparent;
     border-radius: 5px;
-    box-shadow: var(--box-shadow);
+    box-shadow: 3px 3px 3px 1px whitesmoke;
     overflow: hidden;
+    gap:20px;
   }
