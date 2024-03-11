@@ -31,13 +31,12 @@ table{
 }
       
 .t-table{
-    border-top: 2px solid #D12305;
-    border-bottom: 2px solid #D12305;
+    border: 2px solid #62b0f5; 
     padding:20px 0;
     color: #034862;
     font-weight:bold;
     text-align:center;
-    background-color:whitesmoke;
+    background-color:rgb(247, 229, 229);
 }
            
 th, td{
